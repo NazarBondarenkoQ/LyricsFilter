@@ -5,17 +5,10 @@ import java.util.*;
 
 import static java.util.stream.Collectors.toMap;
 
-public class Lyrics {
-    public static void main(String[] args) throws IOException {
-        String[] lyrics = readLines();
-        String[] censored = {"fucking", "fuck", "dick", "cunt"};
-        String[] splitString = lyricsChecker(lyrics);
-        countWords(censored,splitString);
-        wordRepeat(splitString);
-    }
+class Lyrics {
 
-    private static String[] readLines() throws IOException {
-        FileReader fileReader = new FileReader("/home/nazarubuntru/Documents/Lyrics/src/data.txt");
+    String[] readLines() throws IOException {
+        FileReader fileReader = new FileReader("src/data.txt");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         List<String> lines = new ArrayList<>();
         String line;
@@ -26,7 +19,7 @@ public class Lyrics {
         return lines.toArray(new String[0]);
     }
 
-    private static String[] lyricsChecker(String[] lyrics) {
+    String[] lyricsChecker(String[] lyrics) {
         StringBuilder builder = new StringBuilder();
         System.out.println("Lamb of God - Faded Line (lyrics):");
         System.out.println("==================================");
@@ -38,7 +31,7 @@ public class Lyrics {
         return a.split(" ");
     }
 
-    private static void countWords(String[] censored, String[] lyrics){
+    void countWords(String[] censored, String[] lyrics){
         int wordsCounter = lyrics.length;
         List<String> censoredList = new ArrayList<>();
         System.out.println("=================================================");
@@ -60,7 +53,7 @@ public class Lyrics {
         System.out.println("=================================================");
     }
 
-    private static void wordRepeat(String[] lyrics) {
+    void wordRepeat(String[] lyrics) {
         Map<String, Integer> repeats = new HashMap<>();
         for (String word : lyrics) {
             Integer repeater = repeats.get(word);
