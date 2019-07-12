@@ -15,7 +15,7 @@ public class Lyrics {
     }
 
     private static String[] readLines() throws IOException {
-        FileReader fileReader = new FileReader("/home/nazarubuntru/Documents/Lyrics/src/lyrics.txt");
+        FileReader fileReader = new FileReader("/home/nazarubuntru/Documents/Lyrics/src/data.txt");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         List<String> lines = new ArrayList<>();
         String line;
@@ -55,6 +55,8 @@ public class Lyrics {
             }
         }
         System.out.println("Number of words in the lyrics (without exceptions): " + (wordsCounter - censoredList.size()));
+        System.out.println("=================================================");
+        System.out.println("Number of filtered words:  " + censoredList.size());
         System.out.println("=================================================");
     }
 
